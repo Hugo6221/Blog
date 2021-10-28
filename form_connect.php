@@ -9,6 +9,8 @@ if(isset($_POST['submit'])){
 
     $utilisateurs = new utilisateurs();
     $utilisateurs->hydrate($_POST);
+    
+    $utilisateurs->setMdp(password_hash($utilisateurs->getMdp(),PASSWORD_DEFAULT));
 
     $utilisateursManager = new utilisateursManager($bdd);
 
